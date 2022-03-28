@@ -1,0 +1,18 @@
+body {
+    background-image: url("gifNengame.gif");
+    background-size: cover;
+}
+.container h1{
+    font-family: "Comic Sans MS";
+    font-size: 60px;
+    color: #14abab;
+}
+.container h2{
+    font-family: "Lucida Console";
+    font-size: 30px;
+    color: #3e6e12;
+}
+
+#myCanvas{
+    opacity: 0.6;
+}
