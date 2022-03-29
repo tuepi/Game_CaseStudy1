@@ -21,6 +21,10 @@ ctx.font = "30px Georgia";
 ctx.fillText("CLICK TO START SPEED UP!!!",30,30);
 let ss = 50;
 
+let nhacVaCham = new Audio("nhacDie.mp3");
+let nhacAn = new Audio("nhacAn.mp3");
+let nhacNen = new Audio("nhacNenn.mp3");
+
 class ToaDo {
     constructor(x,y) {
         this.x = x;
@@ -39,11 +43,9 @@ function getRandomColor() {
 let randomColor = getRandomColor();
 let dir = new ToaDo(1,0);
 let scoreArea = document.getElementById('score');
-let highScore = document.getElementById('high');
 let score = 0;
 
 scoreArea.innerHTML = 'Score: ' + score;
-highScore.innerHTML = 'High Score: ' + score;
 
 class Snake {
     constructor() {
@@ -74,7 +76,6 @@ class Snake {
 
     di() {
         this.xoa();
-        // this.body;
         for (let i = this.body.length - 1; i >= 1; i--) {
             this.body[i].x = this.body[i - 1].x;
             this.body[i].y = this.body[i - 1].y;
@@ -104,9 +105,9 @@ class Snake {
         this.ve();
         score += 10;
         scoreArea.innerHTML = 'Score: ' + score;
-        highScore.innerHTML = 'High Score: ' + score;
     }
     teo() {
+        nhacVaCham.play();
         window.location.reload();
         alert("GAME OVER!!!");
         alert("ĐIỂM CỦA BẠN LÀ " + score + " ĐIỂM.");
@@ -155,10 +156,11 @@ let food = new Food();
 food.addFood();
 
 let setUp = function () {
-    // food.addFood()
+    nhacNen.play();
     player.di();
-    food.ve()
+    food.ve();
     if (player.an(food)){
+        nhacAn.play();
         player.tang();
         food.addFood();
     }
@@ -211,11 +213,3 @@ document.onkeydown = function (evt) {
     }
 }
 
-
-//  setInterval(() => {
-//     player.move();
-//     if (player.checkEat(food)){
-//         player.grow();
-//         food.addFood();
-//     }
-// }, 200)
