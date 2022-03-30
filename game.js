@@ -18,7 +18,7 @@ ctx.fillStyle = bgColor;
 ctx.fillRect(0,0,1000,1000);
 ctx.fillStyle = grd;
 ctx.font = "30px Georgia";
-ctx.fillText("CLICK TO START SPEED UP!!!",30,30);
+ctx.fillText("CLICK TO START AND SPEED UP!!!",30,30);
 let ss = 50;
 
 let nhacVaCham = new Audio("nhacDie.mp3");
