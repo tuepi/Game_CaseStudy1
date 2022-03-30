@@ -23,7 +23,7 @@ let ss = 50;
 
 let nhacVaCham = new Audio("nhacDie.mp3");
 let nhacAn = new Audio("nhacAn.mp3");
-let nhacNen = new Audio("nhacNenn.mp3");
+let nhacNen = new Audio("nhacNen.mp3");
 
 class ToaDo {
     constructor(x,y) {
