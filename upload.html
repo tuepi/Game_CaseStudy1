@@ -8,7 +8,7 @@
 <body>
 
 <progress value="0" max="100" id="uploader">0%</progress>
-<input type="file" value="upload" accept=".jpg" id="fileButton" onchange="upload(event)">
+<input type="file" value="upload" accept=".jpg;.gif" id="fileButton" onchange="upload(event)">
 <h1>Hello GFG</h1>
 <div id="imgDiv"></div>
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
@@ -32,6 +32,7 @@
 </script>
 
 <script type="text/javascript">
+    let key = 'img'
     var image = '';
     // firebase bucket name
     // REPLACE WITH THE ONE YOU CREATE
@@ -96,6 +97,7 @@
                 // Upload completed successfully, now we can get the download URL
                 // save this link somewhere, e.g. put it in an input field
                 var downloadURL = uploadTask.snapshot.downloadURL;
+                localStorage.setItem(key , downloadURL);
                 // image = downloadURL;
                 console.log('downloadURL ===>', image);
                 let divLocation = document.getElementById("imgDiv");
